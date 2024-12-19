@@ -1,8 +1,8 @@
 # Book-Management-System
 A web-based application built using Spring Boot (backend) and HTML/CSS/JavaScript (frontend), designed to manage a collection of books. This application allows authenticated admins to add, update, and delete books while providing an organized interface for users to browse and sort the available books.
 
-<br><h2>Features</h2><br>
-<br><h3>Admin Functionalities : </h3><br>
+<br><h2>Features</h2>
+<h3>Admin Functionalities : </h3><br>
 - Add new books to the collection.
 - Update existing book details like title, author, genre, and price.
 - Delete books securely.
@@ -15,7 +15,7 @@ A web-based application built using Spring Boot (backend) and HTML/CSS/JavaScrip
 - Frontend communicates with the backend via RESTful APIs.
 - JSON is used for data exchange between the client and the server.
 
-<br><h2>Tech Stack</h2><br>
+<br><h2>Tech Stack</h2>
 <h3>Backend : </h3><br>
 - Spring Boot : REST API development.
 - Spring Data JPA : For seamless database operations.
@@ -25,7 +25,7 @@ A web-based application built using Spring Boot (backend) and HTML/CSS/JavaScrip
 - HTML & CSS : User interface design and styling.
 - JavaScript : Dynamic functionality for user interactions and API integration.
 
-<br><h2>How to Run</h2><br>
+<br><h2>How to Run</h2>
 <h3>Prerequisites : </h3><br>
 - Java 17 or above installed.
 - MySQL database set up and running.
@@ -55,15 +55,15 @@ spring.jpa.hibernate.ddl-auto=update
 
 <br><h2>Folder Structure</h2><br>
 book-management-system
-├── src/
-│   ├── main/
-│   │   ├── java/com/example/bookmanagement/  # Spring Boot backend code
-│   │   └── resources/
-│   │       ├── application.properties       # Database configuration
-│   │       └── static/                      # HTML, CSS, JavaScript files
-├── pom.xml                                  # Maven configuration
+-├── src/
+-│   ├── main/
+-│   │   ├── java/com/example/bookmanagement/  # Spring Boot backend code
+-│   │   └── resources/
+-│   │       ├── application.properties       # Database configuration
+-│   │       └── static/                      # HTML, CSS, JavaScript files
+-├── pom.xml                                  # Maven configuration
 
-<br><h2>Future Enhancements</h2><br>
+<br><h2>Future Enhancements</h2>
 - Add book reviews and ratings.
 - Introduce user roles and registration for customers.
 - Enhance UI/UX using a responsive design framework like Bootstrap.
