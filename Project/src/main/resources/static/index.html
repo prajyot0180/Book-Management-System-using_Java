@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Management System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: #333;
+            color: #fff;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            margin: 20;
+            align-content: center;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        #books-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px;
+        }
+       
+        .book-block {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            width: 200px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .book-block h3 {
+            margin: 0 0 10px;
+            font-size: 18px;
+        }
+
+        .book-block p {
+            margin: 5px 0;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 >Book Management System</h1>
+        <nav>
+            <ul>
+                <li><input type="search" placeholder="Search book"></li>
+                <li><a href="admin.html">Admin Login</a></li>
+               
+            </ul>
+        </nav>
+    </header>
+
+    <section id="view-books">
+        <h2 align="center">All Books</h2>
+        <div id="books-container">
+            <!-- Books will be displayed here -->
+        </div>
+    </section>
+
+    <script>
+        // Fetch book data from the Spring Boot backend
+        fetch('http://localhost:8080/books')
+            .then(response => response.json())
+            .then(books => {
+                // Get the container where books will be displayed
+                const booksContainer = document.getElementById('books-container');
+                booksContainer.innerHTML = ''; // Clear any existing content
+
+                // Loop through the books and create HTML for each book
+                books.forEach(book => {
+                    const bookBlock = document.createElement('div');
+                    bookBlock.classList.add('book-block');
+                    bookBlock.innerHTML = `
+                        <h3>${book.title}</h3>
+                        <p>Author: ${book.author}</p>
+                        <p>Genre: ${book.genre}</p>
+                        <p>Price: $${book.price.toFixed(2)}</p>
+                    `;
+                    booksContainer.appendChild(bookBlock);
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching books:', error);
+            });
+    </script>
+</body>
+</html>
